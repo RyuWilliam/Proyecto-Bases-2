@@ -1,0 +1,25 @@
+-- Tablespace para datos
+CREATE TABLESPACE ts_datos
+DATAFILE 'ts_datos.dbf' SIZE 100M
+AUTOEXTEND ON NEXT 10M MAXSIZE UNLIMITED;
+
+-- Tablespace para índices
+CREATE TABLESPACE ts_indices
+DATAFILE 'ts_indices.dbf' SIZE 100M
+AUTOEXTEND ON NEXT 10M MAXSIZE UNLIMITED;
+
+CREATE USER salud_user IDENTIFIED BY salud123
+DEFAULT TABLESPACE ts_datos
+TEMPORARY TABLESPACE TEMP
+QUOTA UNLIMITED ON ts_datos
+QUOTA UNLIMITED ON ts_indices;
+
+-- Permisos mínimos necesarios para CRUD + objetos adicionales
+GRANT CREATE SESSION TO salud_user;
+GRANT CREATE TABLE TO salud_user;
+GRANT CREATE VIEW TO salud_user;
+GRANT CREATE PROCEDURE TO salud_user;
+GRANT CREATE TRIGGER TO salud_user;
+GRANT CREATE SEQUENCE TO salud_user;
+GRANT CREATE SYNONYM TO salud_user;
+GRANT CREATE TYPE TO salud_user;
