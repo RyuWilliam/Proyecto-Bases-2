@@ -78,4 +78,4 @@ REFERENCES COUNTRIES_STATS (countries_stats_id);
 ALTER TABLE HEALTH_STATS
 ADD CONSTRAINT fk_health_disease
 FOREIGN KEY (disease_id)
-REFERENCES DISEASES (disease_id);
+REFERENCES DISEASE (disease_id);
